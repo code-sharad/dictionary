@@ -9,8 +9,8 @@ function InputField({ setword: setword }: { setword: (word: string) => void }) {
     const inputRef = useRef<HTMLInputElement | null>(null);
     inputRef.current?.addEventListener('keydown', (e) => e.key === 'Enter' && setword(inputRef.current?.value || ""))
     return (
-        <div className={`bg-[#f4f4f4] py-4 px-4 w-full border-4 ${inputRef.current?.focus ? '' : "border-none"} flex justify-between items-center rounded-lg gap-8 `}>
-            <input placeholder=" find the meaning..." ref={inputRef} type='text' value={inputword} onChange={(e) => setinputword(e.target.value)} className={`border-4 active:border-violet-500 ${playfair.className}  text-5xl w-full outline-none p-4 rounded-lg`} />
+        <div className={`bg-[#f4f4f4] py-2 lg:py-4 px-2 lg:px-4 w-full border-4 ${inputRef.current?.focus ? '' : "border-none"} flex justify-between items-center rounded-lg gap-8 `}>
+            <input placeholder=" find the meaning..." ref={inputRef} type='text' value={inputword} onChange={(e) => setinputword(e.target.value)} className={`border-2  selection:bg-violet-100   active:border-violet-500 ${playfair.className}  text-5xl w-full outline-none px-4 py-2 rounded-lg`} />
 
         </div>
     )

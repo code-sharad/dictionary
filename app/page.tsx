@@ -9,7 +9,7 @@ export default function Home() {
   const [word, setword] = useState("");
 
   return (
-    <main className={` dark:bg-black flex gap-6 min-h-screen max-w-[900px] mx-auto flex-col items-center justify-between p-24`}>
+    <main className={` dark:bg-black flex gap-6 min-h-screen max-w-[900px] mx-auto flex-col items-center selection:rounded-lg selection:bg-violet-100 justify-between px-4 py-8 lg:p-24`}>
       <Navbar />
       <InputField setword={setword} />
       <WordInfo word={word} />

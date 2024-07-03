@@ -23,7 +23,7 @@ function WordInfo({ word: word }: { word: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [word])
     
-    if ((data as any[])?.[0]?.title === "No Definitions Found") return <h1 className={`${playfair.className} text-5xl `}>{(data as any[])?.[0]?.title}</h1>
+    if ((data as any)?.title === "No Definitions Found") return <h1 className={`${playfair.className} text-5xl `}>{(data as any)?.title}</h1>
     return (
         <section className='w-full '>
 
@@ -53,7 +53,7 @@ function WordInfo({ word: word }: { word: string }) {
 
                                             <ul className='ml-12'>
                                                 {meaning.definitions.map((def: any, i: number) => {
-                                                    return <div key={i}>
+                                                    return <div key={i} className='py-4'>
                                                         <li className='list-disc  marker:text-violet-600'>{def.definition}</li>
                                                         <p className='text-gray-400'>{`"${def.example}"`}</p>
                                                     </div>

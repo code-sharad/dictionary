@@ -17,7 +17,7 @@ function Navbar() {
 
 
     return (
-        <div className='flex justify-between items-center w-full'>
+        <div className='flex justify-between mb-0 lg:mb-12 items-center w-full'>
             <div>
                 <BookIcon />
             </div>
