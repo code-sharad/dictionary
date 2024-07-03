@@ -20,9 +20,10 @@ function WordInfo({ word: word }: { word: string }) {
         console.log(word)
         word.length !== 0 ? getData().then(data => setData(data)) : ""
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [word])
-    console.log(data)
-    if ((data as any[])?.[0]?.title === "No Definitions Found") return <h1 className={`${playfair.className } text-5xl `}>{(data as any[])?.[0]?.title}</h1>
+    
+    if ((data as any[])?.[0]?.title === "No Definitions Found") return <h1 className={`${playfair.className} text-5xl `}>{(data as any[])?.[0]?.title}</h1>
     return (
         <section className='w-full '>
 
