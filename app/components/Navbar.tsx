@@ -22,7 +22,6 @@ function Navbar() {
                 <BookIcon />
             </div>
             <div className='flex gap-8'>
-                <button>Serif</button>
                 <button onClick={() => setDarkTheme(!darkTheme)}><MoonIcon /></button>
             </div>
         </div>
