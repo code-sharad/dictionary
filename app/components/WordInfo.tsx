@@ -23,14 +23,14 @@ function WordInfo({ word: word }: { word: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [word])
     
-    if ((data as any)?.title === "No Definitions Found") return <h1 className={`${playfair.className} text-5xl `}>{(data as any)?.title}</h1>
+    if ((data as any)?.title === "No Definitions Found") return <h1 className={`${playfair.className} text-3xl lg:text-5xl `}>{(data as any)?.title}</h1>
     return (
         <section className='w-full '>
 
             {word.length !== 0 ? <div>
                 {data.map((item: any, i: number) => {
                     return <div key={i}>
-                        <div className='flex my-12 justify-between items-center'>
+                        <div className='flex my-12 mx-1 justify-between items-center'>
                             <div className='flex flex-col gap-4'>
                                 <h1 className={`${playfair.className} text-5xl `}>{item.word}</h1>
                                 <p className='text-violet-700'>{item.phonetics.at(-1).text}</p>
