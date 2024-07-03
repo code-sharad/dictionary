@@ -37,7 +37,7 @@ function WordInfo({ word: word }: { word: string }) {
                             </div>
                             <button onClick={() => audioRef.current?.play()} className='active:border active:border-black focus:border-black rounded-full bg-pink-100 p-6'>
                                 {/* item.phonetics.text */}
-                                <audio ref={audioRef} src={item.phonetics.at(0).audio} ></audio>
+                                <audio ref={audioRef} preload='auto' src={item.phonetics.at(0).audio} ></audio>
                                 <PlayIcon />
                             </button>
                         </div>
