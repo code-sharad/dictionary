@@ -22,7 +22,7 @@ function WordInfo({ word: word }: { word: string }) {
 
     }, [word])
     console.log(data)
-    if (data?.title === "No Definitions Found") return <h1 className={`${playfair.className } text-5xl `}>{data?.title}</h1>
+    if ((data as any[])?.[0]?.title === "No Definitions Found") return <h1 className={`${playfair.className } text-5xl `}>{(data as any[])?.[0]?.title}</h1>
     return (
         <section className='w-full '>
 
