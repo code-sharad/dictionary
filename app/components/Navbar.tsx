@@ -3,12 +3,19 @@ import React, { useEffect } from 'react'
 
 function Navbar() {
     const [darkTheme, setDarkTheme] = React.useState(false)
-    if (localStorage.getItem('darkTheme') === ''){
-        localStorage.setItem('darkTheme', 'false')
-    }
+
     useEffect(() => {
-        darkTheme === true ? localStorage.setItem('darkTheme', 'true') : localStorage.setItem('darkTheme', 'false')
-    },[darkTheme])
+        if (typeof window !== 'undefined') {
+            const theme = localStorage.getItem('darkTheme')
+            if (theme) {
+                setDarkTheme(theme === 'true')
+            }
+            localStorage.setItem('darkTheme', darkTheme ? 'true' : 'false')
+        }
+        
+    }, [darkTheme])
+
+
     return (
         <div className='flex justify-between items-center w-full'>
             <div>
