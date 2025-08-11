@@ -25,7 +25,7 @@ function WordInfo({ word: word }: { word: string }) {
     
     if ((data as any)?.title === "No Definitions Found") return <h1 className={`${playfair.className} text-3xl lg:text-5xl `}>{(data as any)?.title}</h1>
     return (
-        <section className='w-full '>
+        <section className='w-full transition-colors duration-300'>
 
             {word.length !== 0 ? <div>
                 {data.map((item: any, i: number) => {
@@ -33,7 +33,7 @@ function WordInfo({ word: word }: { word: string }) {
                         <div className='flex my-12 mx-1 justify-between items-center'>
                             <div className='flex flex-col gap-4'>
                                 <h1 className={`${playfair.className} text-5xl dark:text-gray-100`}>{item.word}</h1>
-                                <p className='text-violet-700'>{item.phonetics.at(-1).text}</p>
+                                <p className='text-violet-700 dark:text-violet-300'>{item.phonetics.at(-1).text}</p>
                             </div>
                             <button onClick={() => audioRef.current?.play()} className='active:border active:border-black focus:border-black rounded-full bg-pink-100 p-6'>
                                 {/* item.phonetics.text */}
