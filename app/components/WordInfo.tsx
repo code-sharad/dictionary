@@ -32,7 +32,7 @@ function WordInfo({ word: word }: { word: string }) {
                     return <div key={i}>
                         <div className='flex my-12 mx-1 justify-between items-center'>
                             <div className='flex flex-col gap-4'>
-                                <h1 className={`${playfair.className} text-5xl `}>{item.word}</h1>
+                                <h1 className={`${playfair.className} text-5xl dark:text-gray-100`}>{item.word}</h1>
                                 <p className='text-violet-700'>{item.phonetics.at(-1).text}</p>
                             </div>
                             <button onClick={() => audioRef.current?.play()} className='active:border active:border-black focus:border-black rounded-full bg-pink-100 p-6'>
