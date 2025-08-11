@@ -6,14 +6,30 @@ function Navbar() {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            const theme = localStorage.getItem('darkTheme')
+            const theme = localStorage.getItem('theme')
             if (theme) {
-                setDarkTheme(theme === 'true')
+                setDarkTheme(theme === 'dark')
+                if (theme === 'dark') {
+                    document.body.classList.add('dark')
+                } else {
+                    document.body.classList.remove('dark')
+                }
             }
-            localStorage.setItem('darkTheme', darkTheme ? 'true' : 'false')
         }
-        
-    }, [darkTheme])
+    }, [])
+
+    const toggleTheme = () => {
+        const newTheme = !darkTheme
+        setDarkTheme(newTheme)
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('theme', newTheme ? 'dark' : 'light')
+            if (newTheme) {
+                document.body.classList.add('dark')
+            } else {
+                document.body.classList.remove('dark')
+            }
+        }
+    }
 
 
     return (
@@ -22,7 +38,7 @@ function Navbar() {
                 <BookIcon />
             </div>
             <div className='flex gap-8'>
-                <button onClick={() => setDarkTheme(!darkTheme)}><MoonIcon /></button>
+                <button onClick={toggleTheme}>{darkTheme ? <SunIcon /> : <MoonIcon />}</button>
             </div>
         </div>
     )
