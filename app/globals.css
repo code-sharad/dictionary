@@ -8,12 +8,12 @@ body {
 
 /* Light theme styles */
 [data-theme='light'] body {
-  @apply bg-white text-gray-900;
+  @apply bg-primary-50 text-primary-900;
 }
 
 /* Dark theme styles */
 [data-theme='dark'] body {
-  @apply bg-gray-900 text-gray-100;
+  @apply bg-neutral text-primary-100;
 }
 
 /* Scrollbar styles for light theme */
