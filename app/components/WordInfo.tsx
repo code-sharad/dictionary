@@ -16,26 +16,26 @@ function WordInfo({ word: word }: { word: string }) {
     }
 
     // --- AUDIO logic improvements ---
-    const [playingIndex, setPlayingIndex] = useState<number | null>(null);
-    const audioRefs = useRef<(HTMLAudioElement | null)[]>([]);
+    const [playing, setPlaying] = useState(false);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
         word.length !== 0 ? getData().then(data => setData(data)) : ""
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [word])
 
-    function handleAudioPlay(idx: number) {
-        if (playingIndex !== null && audioRefs.current[playingIndex]) {
-            audioRefs.current[playingIndex]?.pause();
-            audioRefs.current[playingIndex]!.currentTime = 0;
-        }
-        if (audioRefs.current[idx]) {
-            audioRefs.current[idx]?.play();
-            setPlayingIndex(idx);
+    function handleAudioPlay() {
+        if (playing && audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+            setPlaying(false);
+        } else if (audioRef.current) {
+            audioRef.current.play();
+            setPlaying(true);
         }
     }
     function handleAudioEnd() {
-        setPlayingIndex(null);
+        setPlaying(false);
     }
 
     if ((data as any)?.title === "No Definitions Found") return <h1 className={`${playfair.className} text-3xl lg:text-5xl text-gray-900 dark:text-gray-100`}>{(data as any)?.title}</h1>;
@@ -52,25 +52,24 @@ function WordInfo({ word: word }: { word: string }) {
                                 <p className='text-violet-700 dark:text-violet-300'>{phoneticsWithAudio.at(-1)?.text || ''}</p>
                             </div>
                             <div className="flex gap-3 items-center">
-                                {phoneticsWithAudio.map((phon: any, audioIdx: number) => (
+                                {phoneticsWithAudio.length > 0 && (
                                     <button
-                                        key={audioIdx}
-                                        onClick={() => handleAudioPlay(audioIdx)}
+                                        onClick={handleAudioPlay}
                                         className={`rounded-full shadow-lg p-4 transition outline-none focus:ring-4 focus:ring-pink-300/60 border border-transparent
                                             bg-pink-100 text-gray-900
                                             dark:bg-purple-900/30 dark:text-gray-100
-                                            ${playingIndex === audioIdx ? 'ring-4 ring-pink-400/60 scale-110' : ''}`}
-                                        aria-label={`Play pronunciation audio ${audioIdx+1}`}
+                                            ${playing ? 'ring-4 ring-pink-400/60 scale-110' : ''}`}
+                                        aria-label="Play pronunciation audio"
                                     >
                                         <audio
-                                            ref={el => {audioRefs.current[audioIdx] = el;}}
+                                            ref={el => audioRef.current = el}
                                             preload='auto'
-                                            src={phon.audio}
+                                            src={phoneticsWithAudio[0].audio}
                                             onEnded={handleAudioEnd}
                                         />
-                                        {playingIndex === audioIdx ? <PauseIcon /> : <PlayIcon />}
+                                        {playing ? <PauseIcon /> : <PlayIcon />}
                                     </button>
-                                ))}
+                                )}
                             </div>
                         </div>
 
