@@ -4,5 +4,14 @@
 
 
 body {
-  @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+  @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300;
 }
+
+::selection {
+  @apply bg-violet-100 dark:bg-violet-700;
+}
+
+input, button, textarea {
+  @apply transition-colors duration-300;
+}
+
