@@ -2,38 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   @apply transition-colors duration-300;
-  scrollbar-color: #b4b4b4 #f4f4f4;
 }
 
+/* Light theme styles */
 [data-theme='light'] body {
   @apply bg-white text-gray-900;
 }
+
+/* Dark theme styles */
 [data-theme='dark'] body {
   @apply bg-gray-900 text-gray-100;
 }
 
-html.dark body {
-  @apply bg-gray-950 text-gray-100;
-  scrollbar-color: #3a3540 #181824;
-}
-
-/* custom scrollbar */
+/* Scrollbar styles for light theme */
 body::-webkit-scrollbar {
   width: 8px;
 }
+
 body::-webkit-scrollbar-thumb {
   background: #b4b4b4;
   border-radius: 4px;
 }
+
 body::-webkit-scrollbar-track {
   background: #f4f4f4;
 }
-html.dark body::-webkit-scrollbar-thumb {
+
+/* Scrollbar styles for dark theme */
+[data-theme='dark'] body::-webkit-scrollbar-thumb {
   background: #3a3540;
 }
-html.dark body::-webkit-scrollbar-track {
+
+[data-theme='dark'] body::-webkit-scrollbar-track {
   background: #181824;
+}
+
+/* Base styles for all themes */
+body {
+  min-height: 100vh;
 }
