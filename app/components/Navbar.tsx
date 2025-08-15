@@ -6,28 +6,21 @@ function Navbar() {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            const theme = localStorage.getItem('theme')
-            if (theme) {
-                setDarkTheme(theme === 'dark')
-                if (theme === 'dark') {
-                    document.documentElement.classList.add('dark')
-                } else {
-                    document.documentElement.classList.remove('dark')
-                }
-            }
+            const theme = localStorage.getItem('theme') || 'dark';
+            setDarkTheme(theme === 'dark');
+            document.documentElement.classList.toggle('dark', theme === 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
         }
-    }, [])
+    }, []);
 
     const toggleTheme = () => {
-        const newTheme = !darkTheme
-        setDarkTheme(newTheme)
+        const newTheme = !darkTheme;
+        setDarkTheme(newTheme);
         if (typeof window !== 'undefined') {
-            localStorage.setItem('theme', newTheme ? 'dark' : 'light')
-            if (newTheme) {
-                document.documentElement.classList.add('dark')
-            } else {
-                document.documentElement.classList.remove('dark')
-            }
+            const themeStr = newTheme ? 'dark' : 'light';
+            localStorage.setItem('theme', themeStr);
+            document.documentElement.classList.toggle('dark', newTheme);
+            document.documentElement.setAttribute('data-theme', themeStr);
         }
     }
 
