@@ -89,7 +89,7 @@ function WordInfo({ word: word }: { word: string }) {
                                                 {meaning.definitions.map((def: any, i: number) => {
                                                     return <div key={i} className='py-4'>
                                                         <li className='list-disc marker:text-violet-600 text-gray-800 dark:text-gray-200'>{def.definition}</li>
-                                                        <p className='text-gray-600 dark:text-gray-400'>{def.example ? `"${def.example}"` : ''}</p>
+                                                        <p className='text-gray-600 dark:text-gray-400'>{def.example ? `&#34;${def.example}&#34;` : ''}</p>
                                                     </div>
                                                 })}
                                             </ul>
@@ -103,7 +103,7 @@ function WordInfo({ word: word }: { word: string }) {
                                 <div className='flex justify-start gap-12'>
                                     <h1 className='text-gray-600 dark:text-gray-400'>Synonyms</h1>
                                     {item.synonyms?.map((syn: any, i: number) => {
-                                        return <p key={i} className='text-purple-600 dark:text-purple-400'>"{syn}"</p>
+                                        return <p key={i} className='text-purple-600 dark:text-purple-400'>&#34;{syn}&#34;</p>
                                     })}
                                 </div>
                             )}
@@ -111,7 +111,7 @@ function WordInfo({ word: word }: { word: string }) {
                                 <div className='flex justify-start gap-12'>
                                     <h1 className='text-gray-600 dark:text-gray-400'>Antonyms</h1>
                                     {item.antonyms?.map((ant: any, i: number) => {
-                                        return <p key={i} className='text-red-600 dark:text-red-400'>"{ant}"</p>
+                                        return <p key={i} className='text-red-600 dark:text-red-400'>&#34;{ant}&#34;</p>
                                     })}
                                 </div>
                             )}
