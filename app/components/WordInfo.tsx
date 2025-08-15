@@ -62,7 +62,7 @@ function WordInfo({ word: word }: { word: string }) {
                                         aria-label="Play pronunciation audio"
                                     >
                                         <audio
-                                            ref={el => audioRef.current = el}
+                                            ref={audioRef}
                                             preload='auto'
                                             src={phoneticsWithAudio[0].audio}
                                             onEnded={handleAudioEnd}
