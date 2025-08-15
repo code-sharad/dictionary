@@ -22,24 +22,25 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #b4b4b4;
+  background: #CDA434; /* premium gold */
   border-radius: 4px;
 }
 
 body::-webkit-scrollbar-track {
-  background: #f4f4f4;
+  background: #F5E9DB; /* subtle champagne */
 }
 
 /* Scrollbar styles for dark theme */
 [data-theme='dark'] body::-webkit-scrollbar-thumb {
-  background: #3a3540;
+  background: #968047; /* premium bronze */
 }
 
 [data-theme='dark'] body::-webkit-scrollbar-track {
-  background: #181824;
+  background: #222327; /* premium near-black */
 }
 
 /* Base styles for all themes */
 body {
   min-height: 100vh;
 }
+

@@ -16,8 +16,8 @@ function InputField({ setword: setword }: { setword: (word: string) => void }) {
 
     return (
         <div className={`py-2 lg:py-4 px-2 lg:px-4 w-full border-4 transition-colors duration-300
-            bg-white border-gray-200 
-            dark:bg-gray-800 dark:border-gray-700
+            bg-primary-50 border-primary-100
+            dark:bg-neutral dark:border-primary-900
             flex justify-between items-center rounded-lg gap-8`}>
             <input 
                 placeholder="find the meaning..." 
@@ -26,10 +26,10 @@ function InputField({ setword: setword }: { setword: (word: string) => void }) {
                 value={inputword} 
                 onChange={(e) => setinputword(e.target.value)} 
                 onKeyDown={handleKeyDown}
-                className={`border-2 selection:bg-violet-100 dark:selection:bg-violet-700 
-                    bg-white border-gray-200 
-                    dark:bg-gray-900 dark:border-gray-800 
-                    active:border-violet-500 
+                className={`border-2 selection:bg-accent/50 dark:selection:bg-accent/50 
+                    bg-primary-50 border-primary-200
+                    dark:bg-primary-900 dark:border-primary-700 
+                    active:border-accent 
                     ${playfair.className} text-3xl lg:text-5xl w-full outline-none px-4 py-2 rounded-lg transition-all duration-300`} 
             />
         </div>
