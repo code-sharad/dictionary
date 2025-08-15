@@ -38,7 +38,11 @@ function Navbar() {
                 <BookIcon />
             </div>
             <div className='flex gap-8'>
-                <button onClick={toggleTheme}>{darkTheme ? <SunIcon /> : <MoonIcon />}</button>
+                <button 
+                    aria-label="Toggle dark mode"
+                    title="Toggle dark mode"
+                    className={"rounded-full p-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-violet-400 " + (darkTheme ? 'bg-gray-800 text-yellow-300' : 'bg-yellow-50 text-gray-800')}
+                    onClick={toggleTheme}>{darkTheme ? <SunIcon /> : <MoonIcon />}</button>
             </div>
         </div>
     )

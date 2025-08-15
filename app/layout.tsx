@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark:bg-gray-900 bg-white">
-      <body className={inter.className + " min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300"} suppressHydrationWarning={true}>
+      <body className={inter.className + " min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 antialiased"} suppressHydrationWarning={true}>
         {children}
       </body>
     </html>
