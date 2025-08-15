@@ -38,7 +38,7 @@ function WordInfo({ word: word }: { word: string }) {
         setPlaying(false);
     }
 
-    if ((data as any)?.title === "No Definitions Found") return <h1 className={`${playfair.className} text-3xl lg:text-5xl text-gray-900 dark:text-gray-100`}>{(data as any)?.title}</h1>;
+    if ((data as any)?.title === "No Definitions Found") return <h1 className={`${playfair.className} text-3xl lg:text-5xl text-primary-900 dark:text-primary-100`}>{(data as any)?.title}</h1>;
     return (
         <section className='w-full transition-colors duration-300'>
             {word.length !== 0 ? <div>
@@ -48,17 +48,17 @@ function WordInfo({ word: word }: { word: string }) {
                     return <div key={i}>
                         <div className='flex my-12 mx-1 justify-between items-center gap-6 flex-wrap'>
                             <div className='flex flex-col gap-4'>
-                                <h1 className={`${playfair.className} text-5xl text-gray-900 dark:text-gray-100`}>{item.word}</h1>
-                                <p className='text-violet-700 dark:text-violet-300'>{phoneticsWithAudio.at(-1)?.text || ''}</p>
+                                <h1 className={`${playfair.className} text-5xl text-primary-900 dark:text-primary-100`}>{item.word}</h1>
+                                <p className='text-accent'>{phoneticsWithAudio.at(-1)?.text || ''}</p>
                             </div>
                             <div className="flex gap-3 items-center">
                                 {phoneticsWithAudio.length > 0 && (
                                     <button
                                         onClick={handleAudioPlay}
-                                        className={`rounded-full shadow-lg p-4 transition outline-none focus:ring-4 focus:ring-pink-300/60 border border-transparent
-                                            bg-pink-100 text-gray-900
-                                            dark:bg-purple-900/30 dark:text-gray-100
-                                            ${playing ? 'ring-4 ring-pink-400/60 scale-110' : ''}`}
+                                        className={`rounded-full shadow-lg p-4 transition outline-none focus:ring-4 focus:ring-accent/40 border border-transparent
+                                            bg-accent/10 text-primary-900
+                                            dark:bg-primary-900/30 dark:text-primary-100
+                                            ${playing ? 'ring-4 ring-accent/60 scale-110' : ''}`}
                                         aria-label="Play pronunciation audio"
                                     >
                                         <audio

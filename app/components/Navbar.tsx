@@ -36,10 +36,10 @@ function Navbar() {
             <div className='flex gap-8'>
                 <button
                     onClick={toggleTheme}
-                    className={`transition-colors border px-2.5 py-2 rounded-full shadow focus:outline-none focus:ring-4 focus:ring-violet-300/70
+                    className={`transition-colors border px-2.5 py-2 rounded-full shadow focus:outline-none focus:ring-4 focus:ring-accent/50
                         ${isDarkTheme 
-                            ? 'bg-gray-900 border-gray-800 text-yellow-300 hover:bg-gray-800 hover:border-yellow-500 hover:text-yellow-200' 
-                            : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 hover:text-gray-900'}`}
+                            ? 'bg-neutral border-neutral text-accent hover:bg-primary-900 hover:border-accent hover:text-accent' 
+                            : 'bg-primary-50 border-primary-100 text-primary-900 hover:bg-accent/10 hover:border-accent hover:text-accent'}`}
                     aria-label={isDarkTheme ? "Switch to light mode" : "Switch to dark mode"}
                     tabIndex={0}
                 >
