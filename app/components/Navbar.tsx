@@ -40,9 +40,10 @@ function Navbar() {
             <div className='flex gap-8'>
                 <button
     onClick={toggleTheme}
-    className={`transition-colors border px-2.5 py-2 rounded-full 
-        ${darkTheme ? 'bg-gray-800 border-gray-700 text-yellow-300 hover:bg-gray-700 hover:border-yellow-500' : 'bg-gray-200 border-gray-300 text-gray-700 hover:bg-yellow-100 hover:border-yellow-400'}`}
+    className={`transition-colors border px-2.5 py-2 rounded-full shadow focus:outline-none focus:ring-4 focus:ring-violet-300/70
+        ${darkTheme ? 'bg-gray-900 border-gray-800 text-yellow-300 hover:bg-gray-800 hover:border-yellow-500' : 'bg-white border-gray-300 text-gray-700 hover:bg-yellow-100 hover:border-yellow-400'}`}
     aria-label="Toggle dark mode"
+    tabIndex={0}
 >
     {darkTheme ? <SunIcon /> : <MoonIcon />}
 </button>
